@@ -712,6 +712,7 @@ en:
         title: Administrators
         name: Name
         email: Email
+        description: Description
         id: Administrator ID
         no_administrators: There are no administrators.
       administrator:
@@ -720,6 +721,9 @@ en:
         restricted_removal: "Sorry, you can't remove yourself from the administrators"
       search:
         title: "Administrators: User search"
+      form:
+        edit_title: "Edit administrator"
+        updated: "Administrator updated successfully"
     moderators:
       index:
         title: Moderators
