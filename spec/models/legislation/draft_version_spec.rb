@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe Legislation::DraftVersion, type: :model do
-    let(:legislation_draft_version) { build(:legislation_draft_version) }
+  let(:legislation_draft_version) { build(:legislation_draft_version) }
 
   it "is valid" do
     expect(legislation_draft_version).to be_valid
@@ -27,7 +27,7 @@ RSpec.describe Legislation::DraftVersion, type: :model do
   end
 
   def body_markdown
-<<-BODY_MARKDOWN
+    <<-BODY_MARKDOWN
 # Title 1
 
 Some paragraph.
@@ -48,7 +48,7 @@ BODY_MARKDOWN
   end
 
   def body_html
-<<-BODY_HTML
+    <<-BODY_HTML
 <h1 id="title-1">Title 1</h1>
 
 <p>Some paragraph.</p>
@@ -71,7 +71,7 @@ BODY_HTML
   end
 
   def toc_html
-<<-TOC_HTML
+    <<-TOC_HTML
 <ul>
 <li>
 <a href="#title-1">Title 1</a>
