@@ -20,7 +20,7 @@ class Budget < ApplicationRecord
     end
   end
 
-  CURRENCY_SYMBOLS = %w(€ $ £ ¥).freeze
+  CURRENCY_SYMBOLS = %w[€ $ £ ¥].freeze
 
   before_validation :assign_model_to_translations
 
@@ -175,13 +175,13 @@ class Budget < ApplicationRecord
   def investments_orders
     case phase
     when "accepting", "reviewing"
-      %w{random}
+      %w[random]
     when "publishing_prices", "balloting", "reviewing_ballots"
-      %w{random price}
+      %w[random price]
     when "finished"
-      %w{random}
+      %w[random]
     else
-      %w{random confidence_score}
+      %w[random confidence_score]
     end
   end
 
