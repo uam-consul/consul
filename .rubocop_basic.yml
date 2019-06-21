@@ -38,6 +38,12 @@ Lint/UselessAssignment:
 Metrics/LineLength:
   Max: 110
 
+Rails/Date:
+  Enabled: true
+
+Rails/TimeZone:
+  Enabled: true
+
 RSpec/NotToNot:
   Enabled: true
 
