@@ -59,12 +59,13 @@ describe "Poll Votation Type" do
     let(:poll_current) { create(:poll, :current) }
     let(:question) { create(:poll_question_multiple, poll: poll_current) }
     let!(:answer1) { create(:poll_question_answer, question: question, title: "answer_1") }
-    let!(:answer2) { create(:poll_question_answer, question: question, title: "answer_2") }
-    let!(:answer3) { create(:poll_question_answer, question: question, title: "answer_3") }
-    let!(:answer4) { create(:poll_question_answer, question: question, title: "answer_4") }
-    let!(:answer5) { create(:poll_question_answer, question: question, title: "answer_5") }
 
     before do
+      create(:poll_question_answer, question: question, title: "answer_2")
+      create(:poll_question_answer, question: question, title: "answer_3")
+      create(:poll_question_answer, question: question, title: "answer_4")
+      create(:poll_question_answer, question: question, title: "answer_5")
+
       login_as(user)
     end
 
@@ -142,13 +143,13 @@ describe "Poll Votation Type" do
     let(:user) { create(:user, :verified) }
     let(:poll_current) { create(:poll, :current) }
     let(:question) { create(:poll_question_prioritized, poll: poll_current) }
-    let!(:answer1) { create(:poll_question_answer, question: question, title: "answer_1") }
-    let!(:answer2) { create(:poll_question_answer, question: question, title: "answer_2") }
-    let!(:answer3) { create(:poll_question_answer, question: question, title: "answer_3") }
-    let!(:answer4) { create(:poll_question_answer, question: question, title: "answer_4") }
-    let!(:answer5) { create(:poll_question_answer, question: question, title: "answer_5") }
-
     before do
+      create(:poll_question_answer, question: question, title: "answer_1")
+      create(:poll_question_answer, question: question, title: "answer_2")
+      create(:poll_question_answer, question: question, title: "answer_3")
+      create(:poll_question_answer, question: question, title: "answer_4")
+      create(:poll_question_answer, question: question, title: "answer_5")
+
       login_as(user)
     end
 
@@ -205,12 +206,13 @@ describe "Poll Votation Type" do
     let(:poll_current) { create(:poll, :current) }
     let(:question) { create(:poll_question_positive_open, poll: poll_current) }
     let!(:answer1) { create(:poll_question_answer, question: question, title: "answer_1") }
-    let!(:answer2) { create(:poll_question_answer, question: question, title: "answer_2") }
-    let!(:answer3) { create(:poll_question_answer, question: question, title: "answer_3") }
-    let!(:answer4) { create(:poll_question_answer, question: question, title: "answer_4") }
-    let!(:answer5) { create(:poll_question_answer, question: question, title: "answer_5") }
 
     before do
+      create(:poll_question_answer, question: question, title: "answer_2")
+      create(:poll_question_answer, question: question, title: "answer_3")
+      create(:poll_question_answer, question: question, title: "answer_4")
+      create(:poll_question_answer, question: question, title: "answer_5")
+
       login_as(user)
     end
 
@@ -301,12 +303,13 @@ describe "Poll Votation Type" do
     let(:poll_current) { create(:poll, :current) }
     let(:question) { create(:poll_question_positive_negative_open, poll: poll_current) }
     let!(:answer1) { create(:poll_question_answer, question: question, title: "answer_1") }
-    let!(:answer2) { create(:poll_question_answer, question: question, title: "answer_2") }
-    let!(:answer3) { create(:poll_question_answer, question: question, title: "answer_3") }
-    let!(:answer4) { create(:poll_question_answer, question: question, title: "answer_4") }
-    let!(:answer5) { create(:poll_question_answer, question: question, title: "answer_5") }
 
     before do
+      create(:poll_question_answer, question: question, title: "answer_2")
+      create(:poll_question_answer, question: question, title: "answer_3")
+      create(:poll_question_answer, question: question, title: "answer_4")
+      create(:poll_question_answer, question: question, title: "answer_5")
+
       login_as(user)
     end
 
@@ -395,13 +398,14 @@ describe "Poll Votation Type" do
     let(:user) { create(:user, :verified) }
     let(:poll_current) { create(:poll, :current) }
     let(:question) { create(:poll_question_answer_set_open, poll: poll_current) }
-    let!(:answer1) { create(:poll_question_answer, question: question, title: "answer_1") }
-    let!(:answer2) { create(:poll_question_answer, question: question, title: "answer_2") }
-    let!(:answer3) { create(:poll_question_answer, question: question, title: "answer_3") }
-    let!(:answer4) { create(:poll_question_answer, question: question, title: "answer_4") }
-    let!(:answer5) { create(:poll_question_answer, question: question, title: "answer_5") }
 
     before do
+      create(:poll_question_answer, question: question, title: "answer_1")
+      create(:poll_question_answer, question: question, title: "answer_2")
+      create(:poll_question_answer, question: question, title: "answer_3")
+      create(:poll_question_answer, question: question, title: "answer_4")
+      create(:poll_question_answer, question: question, title: "answer_5")
+
       login_as(user)
     end
 
