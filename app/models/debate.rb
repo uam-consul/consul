@@ -68,7 +68,7 @@ class Debate < ApplicationRecord
     { title              => "A",
       author.username    => "B",
       tag_list.join(" ") => "B",
-      geozone.try(:name) => "B",
+      geozone&.name      => "B",
       description        => "D"
     }
   end

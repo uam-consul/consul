@@ -14,7 +14,7 @@ module Globalizable
     end
 
     def description
-      self.read_attribute(:description).try :html_safe
+      self.read_attribute(:description)&.html_safe
     end
   end
 

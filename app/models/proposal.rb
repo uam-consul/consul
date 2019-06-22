@@ -124,7 +124,7 @@ class Proposal < ApplicationRecord
     { title              => "A",
       author.username    => "B",
       tag_list.join(" ") => "B",
-      geozone.try(:name) => "B",
+      geozone&.name      => "B",
       summary            => "C",
       description        => "D"
     }
