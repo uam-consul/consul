@@ -1,4 +1,4 @@
-<%= render "admin/shared/globalize_locales", resource: @draft_version  %>
+<%= render "admin/shared/globalize_locales", resource: @draft_version %>
 
 <%= translatable_form_for [:admin, @process, @draft_version], url: url, html: {data: {watch_changes: true}} do |f| %>
 
@@ -45,9 +45,9 @@
         </div>
 
         <%= link_to "#", class: "fullscreen-toggle" do %>
-          <span data-closed-text="<%= t("admin.legislation.draft_versions.form.launch_text_editor")%>"
-                data-open-text="<%= t("admin.legislation.draft_versions.form.close_text_editor")%>">
-            <strong><%= t("admin.legislation.draft_versions.form.launch_text_editor")%></strong>
+          <span data-closed-text="<%= t("admin.legislation.draft_versions.form.launch_text_editor") %>"
+                data-open-text="<%= t("admin.legislation.draft_versions.form.close_text_editor") %>">
+            <strong><%= t("admin.legislation.draft_versions.form.launch_text_editor") %></strong>
           </span>
 
         <% end %>
