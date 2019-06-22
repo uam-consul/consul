@@ -138,7 +138,7 @@ describe Poll do
   end
 
   describe "answerable_by" do
-    let(:geozone) {create(:geozone) }
+    let(:geozone) { create(:geozone) }
 
     let!(:current_poll) { create(:poll) }
     let!(:expired_poll) { create(:poll, :expired) }

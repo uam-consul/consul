@@ -7,7 +7,7 @@ class SignatureSheet < ApplicationRecord
   has_many :signatures
 
   validates :author, presence: true
-  validates :signable_type, inclusion: {in: VALID_SIGNABLES}
+  validates :signable_type, inclusion: { in: VALID_SIGNABLES }
   validates :document_numbers, presence: true
   validates :signable, presence: true
   validate  :signable_found
@@ -29,7 +29,7 @@ class SignatureSheet < ApplicationRecord
   end
 
   def parsed_document_numbers
-    document_numbers.split(/\r\n|\n|[,]/).collect {|d| d.gsub(/\s+/, "") }
+    document_numbers.split(/\r\n|\n|[,]/).collect { |d| d.gsub(/\s+/, "") }
   end
 
   def signable_found

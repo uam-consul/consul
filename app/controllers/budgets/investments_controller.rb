@@ -95,7 +95,7 @@ module Budgets
     end
 
     def json_data
-      investment =  Budget::Investment.find(params[:id])
+      investment = Budget::Investment.find(params[:id])
       data = {
         investment_id: investment.id,
         investment_title: investment.title,

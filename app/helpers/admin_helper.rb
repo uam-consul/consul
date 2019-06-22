@@ -78,7 +78,7 @@ module AdminHelper
 
   def admin_select_options
     Administrator.with_user
-                 .collect { |v| [ v.description_or_name, v.id ] }
+                 .collect { |v| [v.description_or_name, v.id] }
                  .sort_by { |a| a[0] }
   end
 

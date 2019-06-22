@@ -28,7 +28,7 @@ describe CensusApi do
   end
 
   describe "#call" do
-    let(:invalid_body) { {get_habita_datos_response: {get_habita_datos_return: {datos_habitante: {}}}} }
+    let(:invalid_body) { { get_habita_datos_response: { get_habita_datos_return: { datos_habitante: {}}}} }
     let(:valid_body) do
       {
         get_habita_datos_response: {

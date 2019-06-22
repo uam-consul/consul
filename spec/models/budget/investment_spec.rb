@@ -128,7 +128,7 @@ describe Budget::Investment do
     end
 
     it "send an email" do
-      expect {investment.send_unfeasible_email}.to change { ActionMailer::Base.deliveries.count }.by(1)
+      expect { investment.send_unfeasible_email }.to change { ActionMailer::Base.deliveries.count }.by(1)
     end
   end
 
@@ -141,7 +141,7 @@ describe Budget::Investment do
     end
 
     it "returns false in any other phase" do
-      Budget::Phase::PHASE_KINDS.reject {|phase| phase == "selecting"}.each do |phase|
+      Budget::Phase::PHASE_KINDS.reject { |phase| phase == "selecting" }.each do |phase|
         budget = create(:budget, phase: phase)
         investment = create(:budget_investment, budget: budget)
 
@@ -159,7 +159,7 @@ describe Budget::Investment do
     end
 
     it "returns false in any other phase" do
-      Budget::Phase::PHASE_KINDS.reject {|phase| phase == "valuating"}.each do |phase|
+      Budget::Phase::PHASE_KINDS.reject { |phase| phase == "valuating" }.each do |phase|
         budget = create(:budget, phase: phase)
         investment = create(:budget_investment, budget: budget)
 
@@ -184,7 +184,7 @@ describe Budget::Investment do
     end
 
     it "returns false in any other phase" do
-      Budget::Phase::PHASE_KINDS.reject {|phase| phase == "balloting"}.each do |phase|
+      Budget::Phase::PHASE_KINDS.reject { |phase| phase == "balloting" }.each do |phase|
         budget = create(:budget, phase: phase)
         investment = create(:budget_investment, :selected, budget: budget)
 
@@ -390,17 +390,17 @@ describe Budget::Investment do
     let!(:investment) { create(:budget_investment, :feasible, heading: heading) }
 
     it "finds budget by id or slug" do
-      result = described_class.scoped_filter({budget_id: budget.id}, nil)
+      result = described_class.scoped_filter({ budget_id: budget.id }, nil)
       expect(result.count).to be 1
       expect(result.first.id).to be investment.id
 
-      result = described_class.scoped_filter({budget_id: "budget_slug"}, nil)
+      result = described_class.scoped_filter({ budget_id: "budget_slug" }, nil)
       expect(result.count).to be 1
       expect(result.first.id).to be investment.id
     end
 
     it "does not raise error if budget is not found" do
-      result = described_class.scoped_filter({budget_id: "wrong_budget"}, nil)
+      result = described_class.scoped_filter({ budget_id: "wrong_budget" }, nil)
       expect(result).to be_empty
     end
 
@@ -1040,7 +1040,7 @@ describe Budget::Investment do
       end
 
       it "returns false if budget is not balloting phase" do
-        Budget::Phase::PHASE_KINDS.reject {|phase| phase == "balloting"}.each do |phase|
+        Budget::Phase::PHASE_KINDS.reject { |phase| phase == "balloting" }.each do |phase|
           budget.update(phase: phase)
           investment = create(:budget_investment, budget: budget)
 
@@ -1161,7 +1161,7 @@ describe Budget::Investment do
     let(:investment) { create(:budget_investment, budget: budget) }
 
     describe "with without_admin filter" do
-      let(:params) { {advanced_filters: ["without_admin"], budget_id: budget.id} }
+      let(:params) { { advanced_filters: ["without_admin"], budget_id: budget.id } }
       it "returns only investment without admin" do
         create(:budget_investment,
           :finished,
@@ -1176,7 +1176,7 @@ describe Budget::Investment do
     end
 
     describe "with without_valuator filter" do
-      let(:params) { {advanced_filters: ["without_valuator"], budget_id: budget.id} }
+      let(:params) { { advanced_filters: ["without_valuator"], budget_id: budget.id } }
       it "returns only investment without valuator" do
         create(:budget_investment,
           :finished,
@@ -1194,7 +1194,7 @@ describe Budget::Investment do
     end
 
     describe "with under_valuation filter" do
-      let(:params) { {advanced_filters: ["under_valuation"], budget_id: budget.id} }
+      let(:params) { { advanced_filters: ["under_valuation"], budget_id: budget.id } }
       it "returns only investment under valuation" do
         valuator1 = create(:valuator)
         investment1 = create(:budget_investment,
@@ -1211,7 +1211,7 @@ describe Budget::Investment do
     end
 
     describe "with valuation_finished filter" do
-      let(:params) { {advanced_filters: ["valuation_finished"], budget_id: budget.id} }
+      let(:params) { { advanced_filters: ["valuation_finished"], budget_id: budget.id } }
       it "returns only investment with valuation finished" do
         investment1 = create(:budget_investment,
           :selected,
@@ -1227,7 +1227,7 @@ describe Budget::Investment do
     end
 
     describe "with winners filter" do
-      let(:params) { {advanced_filters: ["winners"], budget_id: budget.id} }
+      let(:params) { { advanced_filters: ["winners"], budget_id: budget.id } }
       it "returns only investment winners" do
         investment1 = create(:budget_investment,
           :winner,
@@ -1273,7 +1273,7 @@ describe Budget::Investment do
 
   describe "milestone_tags" do
     context "without milestone_tags" do
-      let(:investment) {create(:budget_investment)}
+      let(:investment) { create(:budget_investment) }
 
       it "do not have milestone_tags" do
         expect(investment.milestone_tag_list).to eq([])
@@ -1288,7 +1288,7 @@ describe Budget::Investment do
     end
 
     context "with milestone_tags" do
-      let(:investment) {create(:budget_investment, :with_milestone_tags)}
+      let(:investment) { create(:budget_investment, :with_milestone_tags) }
 
       it "has milestone_tags" do
         expect(investment.milestone_tag_list.count).to eq(1)

@@ -181,9 +181,9 @@ describe "Budget Investments" do
     context "Advanced search" do
 
       scenario "Search by text", :js do
-        bdgt_invest1 = create(:budget_investment, heading: heading,title: "Get Schwifty")
-        bdgt_invest2 = create(:budget_investment, heading: heading,title: "Schwifty Hello")
-        bdgt_invest3 = create(:budget_investment, heading: heading,title: "Do not show me")
+        bdgt_invest1 = create(:budget_investment, heading: heading, title: "Get Schwifty")
+        bdgt_invest2 = create(:budget_investment, heading: heading, title: "Schwifty Hello")
+        bdgt_invest3 = create(:budget_investment, heading: heading, title: "Do not show me")
 
         visit budget_investments_path(budget)
 
@@ -325,9 +325,9 @@ describe "Budget Investments" do
         context "Predefined date ranges" do
 
           scenario "Last day", :js do
-            bdgt_invest1 = create(:budget_investment, heading: heading,created_at: 1.minute.ago)
-            bdgt_invest2 = create(:budget_investment, heading: heading,created_at: 1.hour.ago)
-            bdgt_invest3 = create(:budget_investment, heading: heading,created_at: 2.days.ago)
+            bdgt_invest1 = create(:budget_investment, heading: heading, created_at: 1.minute.ago)
+            bdgt_invest2 = create(:budget_investment, heading: heading, created_at: 1.hour.ago)
+            bdgt_invest3 = create(:budget_investment, heading: heading, created_at: 2.days.ago)
 
             visit budget_investments_path(budget)
 
@@ -345,9 +345,9 @@ describe "Budget Investments" do
           end
 
           scenario "Last week", :js do
-            bdgt_invest1 = create(:budget_investment, heading: heading,created_at: 1.day.ago)
-            bdgt_invest2 = create(:budget_investment, heading: heading,created_at: 5.days.ago)
-            bdgt_invest3 = create(:budget_investment, heading: heading,created_at: 8.days.ago)
+            bdgt_invest1 = create(:budget_investment, heading: heading, created_at: 1.day.ago)
+            bdgt_invest2 = create(:budget_investment, heading: heading, created_at: 5.days.ago)
+            bdgt_invest3 = create(:budget_investment, heading: heading, created_at: 8.days.ago)
 
             visit budget_investments_path(budget)
 
@@ -365,9 +365,9 @@ describe "Budget Investments" do
           end
 
           scenario "Last month", :js do
-            bdgt_invest1 = create(:budget_investment, heading: heading,created_at: 10.days.ago)
-            bdgt_invest2 = create(:budget_investment, heading: heading,created_at: 20.days.ago)
-            bdgt_invest3 = create(:budget_investment, heading: heading,created_at: 33.days.ago)
+            bdgt_invest1 = create(:budget_investment, heading: heading, created_at: 10.days.ago)
+            bdgt_invest2 = create(:budget_investment, heading: heading, created_at: 20.days.ago)
+            bdgt_invest3 = create(:budget_investment, heading: heading, created_at: 33.days.ago)
 
             visit budget_investments_path(budget)
 
@@ -385,9 +385,9 @@ describe "Budget Investments" do
           end
 
           scenario "Last year", :js do
-            bdgt_invest1 = create(:budget_investment, heading: heading,created_at: 300.days.ago)
-            bdgt_invest2 = create(:budget_investment, heading: heading,created_at: 350.days.ago)
-            bdgt_invest3 = create(:budget_investment, heading: heading,created_at: 370.days.ago)
+            bdgt_invest1 = create(:budget_investment, heading: heading, created_at: 300.days.ago)
+            bdgt_invest2 = create(:budget_investment, heading: heading, created_at: 350.days.ago)
+            bdgt_invest3 = create(:budget_investment, heading: heading, created_at: 370.days.ago)
 
             visit budget_investments_path(budget)
 
@@ -407,9 +407,9 @@ describe "Budget Investments" do
         end
 
         scenario "Search by custom date range", :js do
-          bdgt_invest1 = create(:budget_investment, heading: heading,created_at: 2.days.ago)
-          bdgt_invest2 = create(:budget_investment, heading: heading,created_at: 3.days.ago)
-          bdgt_invest3 = create(:budget_investment, heading: heading,created_at: 9.days.ago)
+          bdgt_invest1 = create(:budget_investment, heading: heading, created_at: 2.days.ago)
+          bdgt_invest2 = create(:budget_investment, heading: heading, created_at: 3.days.ago)
+          bdgt_invest3 = create(:budget_investment, heading: heading, created_at: 9.days.ago)
 
           visit budget_investments_path(budget)
 
@@ -429,9 +429,9 @@ describe "Budget Investments" do
         end
 
         scenario "Search by custom invalid date range", :js do
-          bdgt_invest1 = create(:budget_investment, heading: heading,created_at: 2.days.ago)
-          bdgt_invest2 = create(:budget_investment, heading: heading,created_at: 3.days.ago)
-          bdgt_invest3 = create(:budget_investment, heading: heading,created_at: 9.days.ago)
+          bdgt_invest1 = create(:budget_investment, heading: heading, created_at: 2.days.ago)
+          bdgt_invest2 = create(:budget_investment, heading: heading, created_at: 3.days.ago)
+          bdgt_invest3 = create(:budget_investment, heading: heading, created_at: 9.days.ago)
 
           visit budget_investments_path(budget)
 
@@ -454,9 +454,9 @@ describe "Budget Investments" do
           ana  = create :user, official_level: 1
           john = create :user, official_level: 1
 
-          bdgt_invest1 = create(:budget_investment, heading: heading,title: "Get Schwifty",   author: ana,  created_at: 1.minute.ago)
-          bdgt_invest2 = create(:budget_investment, heading: heading,title: "Hello Schwifty", author: john, created_at: 2.days.ago)
-          bdgt_invest3 = create(:budget_investment, heading: heading,title: "Save the forest")
+          bdgt_invest1 = create(:budget_investment, heading: heading, title: "Get Schwifty",   author: ana,  created_at: 1.minute.ago)
+          bdgt_invest2 = create(:budget_investment, heading: heading, title: "Hello Schwifty", author: john, created_at: 2.days.ago)
+          bdgt_invest3 = create(:budget_investment, heading: heading, title: "Save the forest")
 
           visit budget_investments_path(budget)
 
@@ -847,7 +847,7 @@ describe "Budget Investments" do
     end
 
     def investments_order
-      all(".budget-investment h3").collect {|i| i.text }
+      all(".budget-investment h3").collect { |i| i.text }
     end
 
   end
@@ -1405,7 +1405,7 @@ describe "Budget Investments" do
         another_heading1 = create(:budget_heading, group: group2)
         another_heading2 = create(:budget_heading, group: group2)
 
-        heading_investment   = create(:budget_investment, heading: heading)
+        heading_investment = create(:budget_investment, heading: heading)
         another_group_investment = create(:budget_investment, heading: another_heading1)
 
         create(:vote, votable: heading_investment, voter: author)
