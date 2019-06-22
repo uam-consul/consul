@@ -41,6 +41,9 @@ Lint/UselessAssignment:
 Metrics/LineLength:
   Max: 110
 
+Rails/RelativeDateConstant:
+  Enabled: true
+
 RSpec/NotToNot:
   Enabled: true
 
