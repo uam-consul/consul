@@ -62,6 +62,9 @@ Rails/Date:
 Rails/HttpPositionalArguments:
   Enabled: true
 
+Rails/RelativeDateConstant:
+  Enabled: true
+
 Rails/TimeZone:
   Enabled: true
 
