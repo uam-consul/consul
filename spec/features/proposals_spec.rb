@@ -1911,7 +1911,7 @@ describe "Successful proposals" do
         click_link "Create a proposal"
       end
 
-      expect(current_path).to eq(new_proposal_path)
+      expect(page).to have_current_path(new_proposal_path)
 
       fill_in "proposal_title", with: "Help refugees"
       fill_in "proposal_summary", with: "In summary what we want is..."

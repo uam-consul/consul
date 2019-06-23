@@ -18,7 +18,7 @@ describe "Admin Budgets" do
 
       balloting_phase = budget.phases.where(kind: "balloting").first
 
-      expect(current_path).to match(/admin\/polls\/\d+/)
+      expect(page).to have_current_path(/admin\/polls\/\d+/)
       expect(page).to have_content(budget.name)
       expect(page).to have_content(balloting_phase.starts_at.to_date)
       expect(page).to have_content(balloting_phase.ends_at.to_date)
