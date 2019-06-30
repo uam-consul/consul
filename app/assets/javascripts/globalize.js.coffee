@@ -1,3 +1,5 @@
+"use strict"
+
 App.Globalize =
 
   display_locale: (locale) ->
