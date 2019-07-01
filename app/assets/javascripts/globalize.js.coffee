@@ -65,14 +65,12 @@ App.Globalize =
       App.Globalize.display_locale($(this).val())
 
     $(".js-globalize-locale-link").on "click", ->
-      locale = $(this).data("locale")
-      App.Globalize.display_translations(locale)
+      App.Globalize.display_translations($(this).data("locale"))
       App.Globalize.highlight_locale($(this))
 
     $(".js-delete-language").on "click", ->
-      locale = $(this).data("locale")
+      App.Globalize.remove_language($(this).data("locale"))
       $(this).hide()
-      App.Globalize.remove_language(locale)
 
     $(".js-add-fields-container").on "cocoon:after-insert", ->
       App.Globalize.enabled_locales().forEach (locale) ->
