@@ -63,5 +63,4 @@
       App.Forms.hideOrShowFieldsAfterSelection();
     }
   };
-
 }).call(this);
