@@ -7,7 +7,6 @@ def deploysecret(key)
 end
 
 set :rails_env, fetch(:stage)
-set :rvm1_ruby_version, "2.3.2"
 
 set :application, "consul"
 set :full_app_name, deploysecret(:full_app_name)
@@ -62,7 +61,9 @@ end
 
 task :install_bundler_gem do
   on roles(:app) do
-    execute "rvm use #{fetch(:rvm1_ruby_version)}; gem install bundler"
+    within release_path do
+      execute "rvm use #{fetch(:rvm1_ruby_version)}; gem install bundler"
+    end
   end
 end
 
