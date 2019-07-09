@@ -79,7 +79,13 @@ RSpec.configure do |config|
     allow(InvisibleCaptcha).to receive(:timestamp_threshold).and_return(0)
   end
 
-  config.after(:each, type: :feature) do
+  config.after(:each, type: :feature) do |example|
+    if example.exception
+      puts page.current_path
+      puts page.html
+      save_and_open_page
+      save_and_open_screenshot
+    end
     Bullet.perform_out_of_channel_notifications if Bullet.notification?
     Bullet.end_request
   end
