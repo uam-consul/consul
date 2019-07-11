@@ -77,3 +77,6 @@ App.ColumnsSelector =
     $(".column-selector-item input").on
       click: (event) ->
         App.ColumnsSelector.toggleColumn(event)
+
+    $(".column-selecteable").on "inserted", ->
+      App.ColumnsSelector.initColumns()
