@@ -42,6 +42,7 @@ RSpec.configure do |config|
   end
 
   config.before do |example|
+    skip if $stop
     puts example.full_description
     DatabaseCleaner.strategy = :transaction
     I18n.locale = :en
@@ -86,6 +87,7 @@ RSpec.configure do |config|
       puts page.html
       save_and_open_page
       save_and_open_screenshot
+      $stop = true
     end
     Bullet.perform_out_of_channel_notifications if Bullet.notification?
     Bullet.end_request

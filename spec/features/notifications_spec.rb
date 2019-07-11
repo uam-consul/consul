@@ -86,6 +86,7 @@ feature "Notifications" do
 
     click_notifications_icon
     click_link "Read"
+    $stop = true
 
     expect(page).to have_css(".notification", count: 1)
     within("#notification_#{notification1.id}") do
