@@ -42,7 +42,7 @@ RSpec.configure do |config|
   end
 
   config.before do |example|
-    puts example.description
+    puts example.full_description
     DatabaseCleaner.strategy = :transaction
     I18n.locale = :en
     Globalize.locale = I18n.locale
