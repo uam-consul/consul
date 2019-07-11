@@ -1,6 +1,6 @@
 App.ColumnsSelector =
 
-  initColums: (name) ->
+  initColumns: (name) ->
     App.ColumnsSelector.hideAll()
     c_value = App.ColumnsSelector.currentValue()
 
@@ -70,7 +70,7 @@ App.ColumnsSelector =
 
   initialize: ->
     App.ColumnsSelector.initChecks()
-    columns = App.ColumnsSelector.initColums($("#js-columns-selector").data("cookie"))
+    columns = App.ColumnsSelector.initColumns($("#js-columns-selector").data("cookie"))
 
     $("#js-columns-selector").on
       click: (event) ->
