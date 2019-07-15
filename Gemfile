@@ -62,7 +62,7 @@ gem "axlsx_rails", "~> 0.5.2"
 
 source "https://rails-assets.org" do
   gem "rails-assets-leaflet"
-  gem "rails-assets-markdown-it", "~> 8.2.1"
+  gem "rails-assets-markdown-it", "~> 9.0.1"
 end
 
 group :development, :test do
