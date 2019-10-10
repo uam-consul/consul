@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190728181702) do
+ActiveRecord::Schema.define(version: 20190903073429) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1314,6 +1314,7 @@ ActiveRecord::Schema.define(version: 20190728181702) do
     t.integer  "budget_id"
     t.string   "related_type"
     t.integer  "related_id"
+    t.integer  "access_level",       default: 3
     t.index ["budget_id"], name: "index_polls_on_budget_id", unique: true, using: :btree
     t.index ["related_type", "related_id"], name: "index_polls_on_related_type_and_related_id", using: :btree
     t.index ["starts_at", "ends_at"], name: "index_polls_on_starts_at_and_ends_at", using: :btree
@@ -1642,6 +1643,15 @@ ActiveRecord::Schema.define(version: 20190728181702) do
     t.boolean  "recommended_proposals",                     default: true
     t.string   "provider"
     t.string   "uid"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "role"
+    t.boolean  "user_certified"
+    t.string   "country"
+    t.string   "document"
+    t.boolean  "user_verified"
+    t.string   "middle_name"
+    t.integer  "level_login"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["geozone_id"], name: "index_users_on_geozone_id", using: :btree

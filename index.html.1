@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en" data-current-user-id="">
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>CONSUL</title>
+<link rel="stylesheet" media="screen" href="/assets/application.self-32c5e5d016b2b338c1da591090c9ba8bf4f2a964f2ce19e1a3f93ec0d9797e93.css?body=1" />
+<script src="/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/jquery-ui/version.self-c8e3d1203da26ea7efdf83c1eabb3f0ba55cb68e463f5ccf0d77bd15ce6a8e61.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/jquery-ui/keycode.self-ad63cd20acf49dd333bbbc537454d7d475bd610eb5b88de0dca009f0c3d314b1.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/jquery-ui/widgets/datepicker.self-2af0dec09da99d687c31fc224e940687a4eb3694e7b38b0871bba475cad86120.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/jquery-ui/i18n/datepicker-es.self-1cc3426c166b4d469b215283dc56cbdf47258974cbbe55fb88de3576ea890036.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/jquery-ui/position.self-1b49c8c521e67a4a88bfdad6b4d944d33686d25009a0e40a1e170acdd7b6962a.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/jquery-ui/safe-active-element.self-a1f1a1a7dae3269ce03f6fffb2dcc9b4a7490f5d546c65d54417bec3be24b668.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/jquery-ui/unique-id.self-66e85ac85cd0b6b8b1bb89369fc65f608f716869dc0930862a8d421a57a9580a.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/jquery-ui/widget.self-fca20bcec06d192f97cffa6e734e24360e227237b8ae7d7e7e60754df7d5444f.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/jquery-ui/widgets/menu.self-0730fe713007bd93e6db569352a20ed92448299505ff6f525bc0dc6dd488254e.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/jquery-ui/widgets/autocomplete.self-6a89d7a43741ec810ef95de143a7c0297e2e4368ebecff64493ebb7a9ac3a524.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/jquery-ui/ie.self-163eb039dcb1e0c3471b7d91386eabb8753da6906e84824c019f9ff56bdb83a6.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/jquery-ui/widgets/mouse.self-f0790a202dcf54fab051e71b042335d5346f9cceb0f645223c1dab93f349a04b.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/jquery-ui/data.self-2067c82e6fe39a9cba5623206a5dc28d5c60d26b95cd100855b78cacf72865b8.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/jquery-ui/scroll-parent.self-38e26a71a450a29fb63425e8f589a7046862f927eb0a1dbf6a6c44da05196d2e.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/jquery-ui/widgets/sortable.self-6e5e1f07a29b5a89ec1d359363d2800904e3ae548a38ab2f8eded36746d1adbe.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/jquery-fileupload/vendor/jquery.ui.widget.self-92c37a41e67e528eecf100716907331b4b9aa4f546bf75ef2e0529c8c03a562d.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/jquery-fileupload/jquery.iframe-transport.self-e461f7ff2a60ee89459106a6f3e349cf79b7f56066b3c8cbc73389b30e1eb592.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/jquery-fileupload/jquery.fileupload.self-79c952fc273d5a8955a6093f4f489dcd509c5a2cefb2b9a049d3cdb2710ec8d3.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/jquery-fileupload/basic.self-6a3cf5192354f71615ac51034b3e97c20eda99643fcaf5bbe6d41ad59bd12167.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.core.self-f3c7f9657e3fa857b22c08af6fe5c52df6f2ad4f5b85268319d47c1be483353d.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.util.box.self-1374dfa35079d1a5d79c52ce28bb1fcc49235c11ee6818cc5ecb8c75cae7786c.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.util.imageLoader.self-aa69f4eae288fd38e9a26618aeb60113cf6ecef6adf12adb071f5e8314348883.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.util.keyboard.self-8c6d9808176c9e63ad273f20b9e78db843d4bf1a444885f4f113f5e1099bd165.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.util.mediaQuery.self-3492b7e03031b25b1025fd296476ac7c885b1a29e64ee8092fad06b3ff98a174.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.util.motion.self-c0ab88883a04ffcffa66f7534c85c9d9863653ce1b00d0cb0fc948df3821aebb.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.util.nest.self-b81a60554ef8b3651b9abdff5694a34212e35727b54760b18d08bfefa8318b78.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.util.timer.self-2d003ba1b9d72cb667d09787251b606932c708950d747491f4f873f3b0d23188.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.util.touch.self-ff0496b17bfa7d74ca6574b8db587414b17ab10e3b51dbba8e5075a66fdb2b02.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.util.triggers.self-c21fdf42b2492cf9dbb4dce6671cea207d9c97c1a9644f4044baa7732d5ad896.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.smoothScroll.self-6f7a8f30c655f84666ccc2c726aa93a02ef6d38167bec18897f445144caea2d5.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.abide.self-07690accb6e943d803321eeec5b280f0e0a64e6c288b0d5dbe285906d19ca7e6.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.accordion.self-a4caf509f6bba7d7ed91c522108fb6318e666feaa9a53675b1cd6bc42028559d.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.accordionMenu.self-9ca2fc83231cfc228b03c8a0ede393cdd37b386b3ca5189e9ecbe71a68a040e2.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.drilldown.self-ca0575bf4b22cb0af1dbd1012338fce7919dd2469ed246dcbbfdad51f6e7e8a6.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.dropdown.self-1d817d2918f0789abcfc1bc1ff6f4ad3a978348cf604c9a01fd06672e206fe29.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.dropdownMenu.self-e2c776e7701022d869bd9fcafeef64ec6234915ba9e093bbbb11141631bc7304.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.equalizer.self-1d3ce868523f236a0581f2667c4fc160c82da78799db87983c096fa8ce5c5181.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.interchange.self-b3af7cdf10891247d0496de9fe1a4698cd2ac4b0adc77d8fc0b66ac1d8ef6a87.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.magellan.self-04cce33908f5315a2467c9a6ef2f6849cf32539c38a491e7cd545549ca83838c.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.offcanvas.self-01ed196877c68a476f3491037d2517469fff4f07a6de3a7fbeef90d7c8769b2d.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.orbit.self-080ec9f4e375295ca8c24eb9cdac71139035d81d47039df777cf75680cc8f252.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.responsiveAccordionTabs.self-e211e135a08bebf26a061b5d087b3a1269357f6e8af05d2a5f087aaae44e2fa2.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.responsiveMenu.self-29d8fa6911d99e5f5d2d977c25621162b7ab23d238628a60a852c4327b194408.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.responsiveToggle.self-cb245efcd6e3806b10224953cdaf11e5ffa0bd1c844f88cbbbf8aff19af9eff2.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.reveal.self-cad3027e9434edd2de11e6be1a647ab2429c856a6db389727b3fb9abfbe55e1e.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.slider.self-8597f1f7435055cbe0f6117edc24f262668ee263aa3b0abdc1bfabcfdc67b67c.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.sticky.self-3ec9a9217ae844f6585f649bcc29bf353292a5b2044f911c755ce20598aba24f.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.tabs.self-3d451ebd1b1987224499c97ddca05e2291c99121c395d43365b80e8171109045.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.toggler.self-7b8b8dda0033d3fb3e4a05e03210f45204034f28b630f38df7c605a275dc58e6.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.tooltip.self-fb8fee91078225bdb99402e7c2a694b3042a49606b78e2a6af7a71544ccc4945.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.self-04d70fb8a9450566c66d9a39ec4abe92ea4871475b0e270b5b27736d815d5f79.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/ckeditor/init.self-2f3e80b764bc18c9362e6f3326e1f32d4a8bdceff67345a3453a93b111626ff3.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/ckeditor/ckeditor.self-5627b7c5975c03aa8c738623a75f40df11e006c51dad749183c4ced4ea4906a1.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/ckeditor/loader.self-1f2470fe2033960ab8be7c8a2a9026e55b9eab8cbd2368d673d6f5ddeb470e14.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/ckeditor/config.self-58a41aad4edb650829cfbb0d6a6e897eb0362033190c3968f8f511346b1bf767.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/ckeditor/reinit.self-65819b848fc11c318f9b1015e64971df20e36b37c6583dc9e376f4c18c8efc66.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/social-share-button.self-2d8c4b86b1c5ff8331884acb21f22d55b05876cb10c0d91d56db7cc4d67704b7.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/initial.self-e7001aa29a26d4aef6278233d96bbc440b48ba06863fd5c83b92c2b96389c5f5.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/ahoy.self-75314cdb9589826c04522a176ba6a973ffdcb46fd5aef58b7a1bc5497a7bfa7a.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/app.self-e196f71ba109e3db5e5d4cd39a91401a4856be1ad2cafd669f4b40460e975fab.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/check_all_none.self-f3f0a35cd9d0995177565f24d7b5330279ab45a5c120f1885b0fd333f1c1dcf9.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/comments.self-a5bc089dbe6a01b273e2841eed1eeece968bdfdf20df656dc8ce20bc0774b952.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation_extras.self-94d3340b498603c509c87b15e21dda2938ff5fc2088d0547c3b97a467ffe71d6.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/ie_alert.self-621eb150602e1c5700d2f12f1c2b30acb120a1f6138bdbdd5e427eb476270855.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/location_changer.self-e05f6da0a487b4ff78d9145f36d2b73a88a9dcea1b75678781bc96ba5999b063.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/moderator_comment.self-b1f6b4ca0928f301cc83a3e6b7ec477bf77f16b381c682ca17bc19d59571f840.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/moderator_debates.self-46175d93b1781d1d2a5cee658be64eeaf9b45acde3f6edcf8b2c38403ed84ac1.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/moderator_proposals.self-9900de2e7dac0c176a0b41b7fd6b8249d911b8ed3616cbc17e32edff442fff85.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/moderator_budget_investments.self-90cc99523b1029708bd7e6eb9ecf07bdb0d9826027cca13fe6e441a647c04c83.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/moderator_proposal_notifications.self-b71f34b8072130d683275a7f753e63d39fd20130cc00a4b7c42e832db4ebf88a.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/prevent_double_submission.self-9b51a96464d350704b130d17382ccb6bf0be49904d6fc0a564001bb3cf40882a.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/gettext.self-b003f8b31c92cf05a41606ee43ffe0f0c5c8db0286d65ff8d4e1bbdb24d07924.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/annotator.self-48b0a14b6f91193ca036922d1a63d43aca3896dc3265d812e9aa569309cb6a0d.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/tags.self-af0363f86d18d7da46447d5d225489791e61a7571d0488e428ef70bf7b1baa0a.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/users.self-ed67c0973d9b8c18216f6c33671060f0d13eb176db749fd4ae8105a55f834f6c.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/votes.self-9de1774658c26eb65ca535ee5620db99ce733daf5a435a973622aa2d22e100ff.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/allow_participation.self-5e4030356da360cf1f098a1876ce5ab608cc54d506d01e86e0c22b27eba0ba77.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/annotatable.self-3e03774e3e6d622ba2ea4650a9c4ae214e230afc3185fa5af0af7b628b827b3b.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/advanced_search.self-ca718011fbbb7752c5f4052cd412e83c0ae7d432962f8177be4ab5e766507718.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/registration_form.self-d1f12f6088d5596212966b539c3887bd68244ec3ea2e414c0b8ea6366a4488ba.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/suggest.self-ef59d1762aa32b1473394479ea16618d1512b7ccf0148f90dfb25a51c6e9ca67.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/forms.self-6974804f227383c34a58dc05a34041eaeb049e1568097d24954ae355914c6ec6.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/tracks.self-0b8fe2d07305037e7f422e8cd7cb8043164acde8da0688bcb63a9497a41d8e23.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/valuation_budget_investment_form.self-27ff68104562bbf75ef44b4e8fea027bc4872823801dd6f9f7d6a694405b0159.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/embed_video.self-60bd9f45d8c1cf9f4c70af7c18f5f5e687ca79b5750f6ff9045db11016846e25.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/fixed_bar.self-2f5876d4492f21f4865ca399072a16644074baf0a2078a311afd62f0d4425e6a.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/banners.self-1ad99ca28a19419532b1ecb713a5ac98e591ac22515b80b6804aa5ee196533d3.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/social_share.self-3782e472fb084fd2132aa1eca7e02ca464e5c748088a54a242f70b391d705603.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/checkbox_toggle.self-e5a0195c2fe6b8489cbf0be64f9de863daf84e9e7ccacad1469a3294967d50a9.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/markdown-it/markdown-it.self-930b1908a019330e903e495b8eae48254deb39625705ce3ece2a48290a159953.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/markdown-it.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/markdown_editor.self-dae4e592bbf68c6582c9545e04d048f4c2bef7cc76a0787cb9b0a67d71f72902.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/cocoon.self-93f6a0ae289b45a10cca9a37fd83317f30d955625d791077135f56fe87c6816f.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/answers.self-275243d02479d7473134a3033574a92fb8fd940cf19f9f91bd882202bdd47e6a.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/questions.self-f8771b5573fcf1936cb8785c0fd92e0c8d71314d28a09f7a138ee1ed655a63be.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/legislation_admin.self-12fd41c4845f76380409bf76fee20c921dc10c4b705e9c8c52aae01837658aae.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/legislation.self-5afea9459dc143fcad8c61733953496802adf17f1059ff4ca6a512aa1aff9f1b.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/legislation_allegations.self-2fa18e9afaf3d3e99fb9fed8220d29abf8af1e2f58cc5436142bd72567d8eacb.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/legislation_annotatable.self-99e9617ec79433fb6012e2a4284b83ef3b67960355cdce8cd43cbe568dd845d3.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/watch_form_changes.self-fdd5f14fcbfc0ae3d220273b71e19eb40ff19098e18b856f00937644fb1a60aa.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/followable.self-428345d8f1c984dd7ae5179d89f65684cc9269763c52ffc7a3fec96c7bbd9c69.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/flaggable.self-062d68b0c5803de3d25b93672109eef0da9216ce5886766115d1ecd918b82b8d.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/documentable.self-65472a1f6b349670e509b376ee00649cd2798347c1e885c42628ff9da68f8998.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/imageable.self-6a88c48d965de2bd55ca3425a03ea50cd1eac8d855a45bfd1460fba3ba1d5fe1.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/tree_navigator.self-c0bbd0fd5ebc2db686f45f6187cc286dfe8148cc95922b43dc9fe41855cdd52b.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/custom.self-128f2a9e94b93a65c2195a2ccb45744145135ea85b47c86c7623464ad14fcc3b.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/tag_autocomplete.self-23486c721764a9a8df1d290e3ae4ee1e93e6c90b57357ddc287978f99dfa4522.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/polls_admin.self-53ef2dc8b2e5a52d59a740803dfe333f83a8d2efab84bbd8d5bdca5ddf438b3b.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/leaflet/leaflet-src.self-de80bb4f552fc52d23085ccb52fc871adc0c3b9d0d8ab861261ee4f0279e84bd.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/leaflet.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/map.self-064454633e9a0d4ea3eb6436e1b7000155340f1e3ea29d54773f4f1098eb512d.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/polls.self-f8ce79ccf3ce0daa332221e0619e4caaa3a14a6bf0be6cddbb7ddbb253443019.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/sortable.self-06153c7c49658463dfa9722699bd6e9aac3712390646689d23be65793aa8e0d3.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/table_sortable.self-85265353d1d2a190d29d2f352d6feac99aab2765aed2982d8b5e1f4183e13a76.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/investment_report_alert.self-1e57aaffe9895825925484e62392db9e91108fa3ed1dcea68e68bc27b4a064db.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/send_newsletter_alert.self-2b40a83e918c37b0a1e4a1d9b137ca67af3f31d01c77059c011ffe6f20a5aee6.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/managers.self-3301a2f44fb3272072c91ac8c9a2a50b1bb7ccdd74138224d607c1ac01040de4.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/globalize.self-3a5ae7b21771f5adb3e1d625234c11a2df396af3fa903781af269c15abc6e70d.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/send_admin_notification_alert.self-5e6fbdfef0a0cb47429f31039f92a94fbe0a4ed4a5093ee54df7cfe9d4857899.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/modal_download.self-132b68f9e3c0d4f37caa28b2bbbad7b6631c684396958f7e6e2ea0201e9dcfd9.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/settings.self-bd60ebfaf5e7910ad49752cb61382549b90202b98c6d3297bfa4f8d352153d73.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/cookies.self-e09de39fc359bd1a3f8ca96578c4c651fe2eed4eab1d66aecfcf62e678bbcec6.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/columns_selector.self-f6c1561e54c872dde60fa48f40b806f4c4db30536c794f204682ecdbaf5cba21.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/budget_edit_associations.self-bcf5e916d3b82cfa9cf95ca686d031c71856d515a6e33c79e36c22032ac36bf5.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/votations.self-f08aab50290c5876c71baaa49bf37a2d7dede3af6ebbcb28614bb6847bd69671.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/application.self-eb3c9f25c3f3178ff53194e4efcdfbc0b257b1b26474524e0ff21a31399426b0.js?body=1" data-turbolinks-track="true"></script>
+<meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="xlqEm1c02G0oXsJq2bDeX+RKk/yAuIY5FzSdDgQsyYlJnSnT5X+CRwzjyAw5hGC6meir2IyHLSoLqULQw42sIw==" />
+<link rel="shortcut icon" type="image/x-icon" href="/assets/favicon-275918e6b845b1c4c258584a852c4e0d2509f526629f4ae2abdc6888b25a7cd7.ico" />
+
+
+    <meta name="tracking_data" data-track-usertype="anonymous" />
+
+    <meta name="description"
+      content="Citizen participation tool for an open, transparent and democratic government" />
+
+<meta name="keywords"
+      content="citizen participation, open government" />
+
+      <link rel="canonical" href="http://10.0.2.15:3000/">
+
+    <!--[if lt IE 9]>
+      <link rel="stylesheet" media="screen" href="/assets/ie.self-c68adaf1888f76d45ae605b414d29c01fd551dd721bc72636bf261970edb14d0.css?body=1" />
+    <![endif]-->
+    <link rel="icon apple-touch-icon" type="image/png" href="/assets/apple-touch-icon-200-fd606bbb0cc28b73249bb636f25f21f61f7b8ae83cb5091e4d681e8c679d1629.png" sizes="200x200" />
+      <!-- Twitter -->
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:site" content="@consul_dev"/>
+<meta name="twitter:title" content="CONSUL"/>
+<meta name="twitter:description" content="Citizen participation tool for an open, transparent and democratic government"/>
+<meta name="twitter:image" content="http://10.0.2.15:3000/social_media_icon_twitter.png"/>
+<!-- Facebook OG -->
+<meta id="ogtitle" property="og:title" content="CONSUL"/>
+  <meta property="article:publisher" content="http://localhost:3000"/>
+  <meta property="article:author" content="https://www.facebook.com/CONSUL"/>
+<meta property="og:type" content="article"/>
+<meta id="ogurl" property="og:url" content="http://10.0.2.15:3000/"/>
+<meta id="ogimage" property="og:image" content="http://10.0.2.15:3000/social_media_icon.png"/>
+<meta property="og:site_name" content="CONSUL"/>
+<meta id="ogdescription" property="og:description" content="Citizen participation tool for an open, transparent and democratic government"/>
+<meta property="fb:app_id" content=""/>
+
+
+
+    
+  </head>
+  <body class="home-page">
+    
+
+    <h1 class="show-for-sr">CONSUL</h1>
+
+    <div class="wrapper ">
+      <header>
+
+  <div class="top-links">
+    <div class="row">
+        <div class="locale" id="js-locale" data-current-local="en">
+    <form class="locale-form">
+      <label class="inline-block" for="locale-switcher">
+        Language:
+      </label>
+      <select class="js-location-changer locale-switcher inline-block" name="locale-switcher" id="locale-switcher">
+        <optgroup label="Available languages">
+            <option 
+                    value="/?locale=ar">
+              عربى
+            </option>
+            <option 
+                    value="/?locale=bs">
+              Bosanski
+            </option>
+            <option 
+                    value="/?locale=cs">
+              Čeština
+            </option>
+            <option 
+                    value="/?locale=da">
+              Dansk
+            </option>
+            <option 
+                    value="/?locale=de">
+              Deutsch
+            </option>
+            <option 
+                    value="/?locale=el">
+              Ελληνικά
+            </option>
+            <option selected
+                    value="/?locale=en">
+              English
+            </option>
+            <option 
+                    value="/?locale=es">
+              Español
+            </option>
+            <option 
+                    value="/?locale=fa">
+              فارسى
+            </option>
+            <option 
+                    value="/?locale=fr">
+              Français
+            </option>
+            <option 
+                    value="/?locale=gl">
+              Galego
+            </option>
+            <option 
+                    value="/?locale=he">
+              עברית
+            </option>
+            <option 
+                    value="/?locale=hr">
+              Hrvatski
+            </option>
+            <option 
+                    value="/?locale=id">
+              Bahasa Inggris
+            </option>
+            <option 
+                    value="/?locale=it">
+              Italiano
+            </option>
+            <option 
+                    value="/?locale=nl">
+              Nederlands
+            </option>
+            <option 
+                    value="/?locale=pl">
+              Polski
+            </option>
+            <option 
+                    value="/?locale=pt-BR">
+              Português brasileiro
+            </option>
+            <option 
+                    value="/?locale=ru">
+              Pусский
+            </option>
+            <option 
+                    value="/?locale=sl">
+              Slovenščina
+            </option>
+            <option 
+                    value="/?locale=sq">
+              Shqiptar
+            </option>
+            <option 
+                    value="/?locale=so">
+              Af Soomaali
+            </option>
+            <option 
+                    value="/?locale=sv">
+              Svenska
+            </option>
+            <option 
+                    value="/?locale=tr">
+              Türkçe
+            </option>
+            <option 
+                    value="/?locale=val">
+              Valencià
+            </option>
+            <option 
+                    value="/?locale=zh-CN">
+              中文
+            </option>
+            <option 
+                    value="/?locale=zh-TW">
+              英文
+            </option>
+        </optgroup>
+      </select>
+    </form>
+  </div>
+
+      <div class="hide-for-small-only">
+        <ul class="no-bullet external-links">
+  
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="top-bar">
+
+      <span data-responsive-toggle="responsive-menu" data-hide-for="medium" class="float-right">
+        <span class="menu-icon dark" data-toggle></span>
+        Menu
+      </span>
+
+      <div class="top-bar-title">
+        <a accesskey="0" href="/">
+          <img class="float-left" alt="CONSUL logo" src="/assets/logo_header-0fbdceb090ff147280d55abb329f8199082670894406ab1c63fb8599cc9e2086.png" />
+</a>      </div>
+
+      <div id="responsive-menu">
+        <div class="top-bar-right">
+          <ul class="menu" data-responsive-menu="medium-dropdown">
+            
+            
+              <li>
+    <a rel="nofollow" href="/users/sign_in">Sign in</a>
+  </li>
+  <li>
+    <a rel="nofollow" class="button" href="/users/sign_up">Register</a>
+  </li>
+
+          </ul>
+
+          <div class="show-for-small-only">
+            <div class="subnavigation row">
+              <div class="small-12 medium-9 column">
+  <ul>
+    
+
+      <li>
+        <a accesskey="1" title="Go to page of Debates" href="/debates">Debates</a>
+      </li>
+      <li>
+        <a accesskey="2" title="Go to page of Proposals" href="/proposals">Proposals</a>
+      </li>
+      <li>
+        <a accesskey="3" title="Go to page of Voting" href="/polls">Voting</a>
+      </li>
+      <li>
+        <a accesskey="4" href="/legislation/processes">Collaborative legislation</a>
+      </li>
+      <li>
+        <a accesskey="5" title="Go to page of Participatory budgeting" href="/budgets">Participatory budgeting</a>
+      </li>
+      <li>
+        <a accesskey="6" title="Go to page of Help" href="/help">Help</a>
+      </li>
+
+    
+  </ul>
+</div>
+
+              <div class="small-12 column">
+                <ul class="no-bullet external-links">
+  
+</ul>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="navigation_bar" class="subnavigation expanded">
+    <div class="row">
+      <div class="hide-for-small-only">
+        <div class="small-12 medium-9 column">
+  <ul>
+    
+
+      <li>
+        <a accesskey="1" title="Go to page of Debates" href="/debates">Debates</a>
+      </li>
+      <li>
+        <a accesskey="2" title="Go to page of Proposals" href="/proposals">Proposals</a>
+      </li>
+      <li>
+        <a accesskey="3" title="Go to page of Voting" href="/polls">Voting</a>
+      </li>
+      <li>
+        <a accesskey="4" href="/legislation/processes">Collaborative legislation</a>
+      </li>
+      <li>
+        <a accesskey="5" title="Go to page of Participatory budgeting" href="/budgets">Participatory budgeting</a>
+      </li>
+      <li>
+        <a accesskey="6" title="Go to page of Help" href="/help">Help</a>
+      </li>
+
+    
+  </ul>
+</div>
+
+      </div>
+      <div class="small-12 medium-3 column">
+        
+      </div>
+    </div>
+  </div>
+</header>
+
+
+      <!--[if lt IE 9]>
+      <![endif]-->
+
+      
+
+      
+
+
+
+  <div class="jumbo highlight">
+    <div class="row">
+      <div class="small-12 medium-6 column ">
+        <span>Welcome to</span>
+        <h1>CONSUL</h1>
+        <p class="lead">Free software for citizen participation.</p>
+        <div class="small-12 medium-6 large-4 ">
+          <a class="button expanded large" href="http://consulproject.org/">More information</a>
+        </div>
+      </div>
+
+        <div class="small-12 medium-6 column">
+          <img class="margin" alt="header_background.jpg" src="/system/images/attachments/000/000/174/large/d1fee0342d02ec0bd399737d00ef0228002ee3ca.jpg" />
+        </div>
+    </div>
+  </div>
+  <div class="background-header"></div>
+
+
+<main>
+  <div class="row margin-bottom feeds-list" data-equalizer data-equalize-on="medium">
+
+      <div id="feed_proposals" class="small-12 column margin-top
+                                      medium-8">
+        <div class="feed-content" data-equalizer-watch>
+          <h3 class="title">Most active proposals</h3>
+
+            <div class="proposal row">
+              <div class="feed-description small-12 column
+                         medium-6 large-9">
+                <strong><a href="/proposals/59-tagged-proposal-title-for-locale-en">Tagged proposal title for locale en</a></strong><br>
+                <p>Tagged proposal title summary for locale en</p>
+              </div>
+                <div class="small-12 medium-6 large-3 column">
+                  <div class="feed-image">
+                    <img alt="Tagged proposal title for locale en" src="/system/images/attachments/000/000/059/thumb/6d6dada0a1fad247ca1df6e027d45e0781f5d9b3.jpg" />
+                  </div>
+                </div>
+            </div>
+            <div class="proposal row">
+              <div class="feed-description small-12 column
+                         medium-6 large-9">
+                <strong><a href="/proposals/25-title-for-locale-en">Title for locale en</a></strong><br>
+                <p>Summary for locale en</p>
+              </div>
+                <div class="small-12 medium-6 large-3 column">
+                  <div class="feed-image">
+                    <img alt="Title for locale en" src="/system/images/attachments/000/000/025/thumb/6d6dada0a1fad247ca1df6e027d45e0781f5d9b3.jpg" />
+                  </div>
+                </div>
+            </div>
+            <div class="proposal row">
+              <div class="feed-description small-12 column
+                         medium-6 large-9">
+                <strong><a href="/proposals/66-tagged-proposal-title-for-locale-en">Tagged proposal title for locale en</a></strong><br>
+                <p>Tagged proposal title summary for locale en</p>
+              </div>
+                <div class="small-12 medium-6 large-3 column">
+                  <div class="feed-image">
+                    <img alt="Tagged proposal title for locale en" src="/system/images/attachments/000/000/066/thumb/6d6dada0a1fad247ca1df6e027d45e0781f5d9b3.jpg" />
+                  </div>
+                </div>
+            </div>
+        </div>
+
+        <a class="see-all" href="/proposals">See all proposals</a>
+      </div>
+
+
+
+
+      <div id="feed_debates" class="small-12 column margin-top
+                                    medium-4">
+        <div class="feed-content" data-equalizer-watch>
+          <h3 class="title">Most active debates</h3>
+
+            <div class="debate">
+              <strong><a href="/debates/44-title-for-locale-en">Title for locale en</a></strong>
+            </div>
+            <div class="debate">
+              <strong><a href="/debates/6-title-for-locale-en">Title for locale en</a></strong>
+            </div>
+            <div class="debate">
+              <strong><a href="/debates/18-title-for-locale-en">Title for locale en</a></strong>
+            </div>
+        </div>
+
+        <a class="see-all" href="/debates">See all debates</a>
+      </div>
+
+
+
+
+</div>
+
+
+
+  <div class="row">
+      <div class="small-12 column large-8">
+        <h3 class="title">Featured</h3>
+
+<div class="row" data-equalizer data-equalizer-on="medium">
+    <div id="widget_card_2"
+     class="card small-12 medium-4 column margin-bottom end" data-equalizer-watch>
+  <a href="https://youtu.be/zU_0UN4VajY">
+    <figure class="figure-card">
+      <div class="gradient"></div>
+        <img alt="debate_background.jpg" src="/system/images/attachments/000/000/175/large/d1fee0342d02ec0bd399737d00ef0228002ee3ca.jpg" />
+      <figcaption>
+          <span>Debates</span>
+        <br>
+        <h3>How do debates work?</h3>
+      </figcaption>
+    </figure>
+    <p class="description">Anyone can open threads on any subject, creating separate spaces where people can discuss the proposed topic. Debates are valued by everybody, to highlight the most important issues.</p>
+    <p>More about debates</p>
+</a></div>
+
+    <div id="widget_card_3"
+     class="card small-12 medium-4 column margin-bottom end" data-equalizer-watch>
+  <a href="https://youtu.be/ZHqBpT4uCoM">
+    <figure class="figure-card">
+      <div class="gradient"></div>
+        <img alt="proposal_background.jpg" src="/system/images/attachments/000/000/176/large/d1fee0342d02ec0bd399737d00ef0228002ee3ca.jpg" />
+      <figcaption>
+          <span>Citizen proposals</span>
+        <br>
+        <h3>How do citizen proposals work?</h3>
+      </figcaption>
+    </figure>
+    <p class="description">A space for everyone to create a citizen's proposal and seek supports. Proposals which reach to enough supports will be voted and so, together we can decide the issues that matter to us.</p>
+    <p>More about proposals</p>
+</a></div>
+
+    <div id="widget_card_4"
+     class="card small-12 medium-4 column margin-bottom end" data-equalizer-watch>
+  <a href="https://youtu.be/igQ8KGZdk9c">
+    <figure class="figure-card">
+      <div class="gradient"></div>
+        <img alt="budget_background.jpg" src="/system/images/attachments/000/000/177/large/d1fee0342d02ec0bd399737d00ef0228002ee3ca.jpg" />
+      <figcaption>
+          <span>Participatory budgets</span>
+        <br>
+        <h3>How do participatory budgets work?</h3>
+      </figcaption>
+    </figure>
+    <p class="description">Participatory budgets allow citizens to propose and decide directly how to spend part of the budget, with monitoring and rigorous evaluation of proposals by the institution. Maximum effectiveness and control with satisfaction for everyone.</p>
+    <p>More about Participatory budgets</p>
+</a></div>
+
+</div>
+
+      </div>
+
+      <div class="small-12 large-4 column">
+        <div class="feeds-list">
+
+
+
+
+
+      <div class="card small-12 column margin-bottom">
+        <div class="feed-content">
+          <h3 class="title">Open processes</h3>
+
+            <a href="/legislation/processes/9">
+              <figure class="figure-card legislation_process">
+                <img alt="" src="/assets/welcome_process-32e5434fc6d8cb740928364c80d79e7dcbbe277e5d0c4d677731c7a88b606c93.png" />
+                <figcaption>
+                  <span>Process</span><br>
+                  <h3>Aut eum rerum laudantium excepturi recusandae.</h3>
+                </figcaption>
+              </figure>
+              <p class="description small">Necessitatibus quaerat corporis facere. Ipsa quia doloribus non non voluptas. Voluptatibus esse doloribus id recusandae in enim qui. Vitae corrupti laboriosam minus consequatur.</p>
+              <p class="small">See process</p>
+</a>
+          <a class="float-right see-all" href="/legislation/processes">See all processes</a>
+        </div>
+      </div>
+
+</div>
+
+      </div>
+  </div>
+
+</main>
+
+
+      <div class="push"></div>
+    </div>
+    <div class="footer">
+      <footer>
+  <div class="row">
+    <div class="small-12 large-4 column">
+      <h1 class="logo">
+        <a href="/">Open government</a>
+      </h1>
+
+      <p class="info">
+        This portal uses the <a target="blank" rel="nofollow" href="https://github.com/consul/consul">CONSUL application</a> which is <a target="blank" rel="nofollow" href="http://www.gnu.org/licenses/agpl-3.0.html">open-source software</a>.
+        For technical assistance visit
+      </p>
+    </div>
+
+    <div class="footer-sections small-12 large-8 column">
+      <div class="small-12 medium-4 column">
+        <a class="title" href="/">Participation</a>
+        <p>Decide how to shape the city you want to live in.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="subfooter row">
+    <div class="small-12 medium-8 column">
+      CONSUL, 2019&nbsp;|
+      <ul class="no-bullet inline-block">
+        <li class="inline-block"><a href="/privacy">Privacy Policy</a>&nbsp;|</li>
+        <li class="inline-block"><a href="/conditions">Terms and conditions of use</a>&nbsp;|</li>
+        <li class="inline-block"><a href="/accessibility">Accessibility</a></li>
+      </ul>
+    </div>
+
+    <div class="small-12 medium-4 column social">
+      <div class="text-right">
+        <ul>
+            <li class="inline-block">
+              <a target="_blank" title="Go to page of CONSUL Twitter (link opens in new window)" href="https://twitter.com/@consul_dev">
+                              <span class="show-for-sr">CONSUL Twitter</span>
+                              <span class="icon-twitter" aria-hidden="true"></span>
+</a>            </li>
+            <li class="inline-block">
+              <a target="_blank" title="Go to page of CONSUL Facebook (link opens in new window)" href="https://www.facebook.com/CONSUL/">
+                          <span class="show-for-sr">CONSUL Facebook</span>
+                          <span class="icon-facebook" aria-hidden="true"></span>
+</a>            </li>
+            <li class="inline-block">
+              <a target="_blank" title="Go to page of CONSUL YouTube (link opens in new window)" href="https://www.youtube.com/CONSUL">
+                          <span class="show-for-sr">CONSUL YouTube</span>
+                          <span class="icon-youtube" aria-hidden="true"></span>
+</a>            </li>
+            <li class="inline-block">
+              <a target="_blank" title="Go to page of CONSUL Telegram (link opens in new window)" href="https://www.telegram.me/CONSUL">
+                          <span class="show-for-sr">CONSUL Telegram</span>
+                          <span class="icon-telegram" aria-hidden="true"></span>
+</a>            </li>
+            <li class="inline-block">
+              <a target="_blank" title="Go to page of CONSUL Instagram (link opens in new window)" href="https://www.instagram.com/CONSUL">
+                          <span class="show-for-sr">CONSUL Instagram</span>
+                          <span class="icon-instagram" aria-hidden="true"></span>
+</a>            </li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+  
+
+
+
+</body>
+  <!--[if lt IE 9]>
+    <script src="/assets/respond.min.self-8306093ccce666c01dab405fac0d16596a1d1cf38aa0ba919d4831261662cdbb.js?body=1"></script>
+<script src="/assets/rem.min.self-03710507716b27cf25450994b9b10b73dcbf58691128d23ce8f53bdd47821e9d.js?body=1"></script>
+<script src="/assets/number-polyfill.min.self-4c1294d1c8c8e0486bb0bda332fbbfc8400f21ec7fd5de985d29b7b74374dc70.js?body=1"></script>
+<script src="/assets/ie_lt9.self-6a3cf5192354f71615ac51034b3e97c20eda99643fcaf5bbe6d41ad59bd12167.js?body=1"></script>
+  <![endif]-->
+</html>

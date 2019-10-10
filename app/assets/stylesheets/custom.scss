@@ -3,3 +3,46 @@
 // * English: https://github.com/consul/consul/blob/master/CUSTOMIZE_EN.md#css
 // * Spanish: https://github.com/consul/consul/blob/master/CUSTOMIZE_ES.md#css
 //
+
+.button.button-clave {
+  background: #ffdb00;
+  border-left: 3px solid orange;
+
+  &::before {
+    color: orange;
+    content: "@";
+    font-family: "icons" !important;
+    font-size: rem-calc(24);
+    left: 0;
+    line-height: $line-height * 2;
+    padding: 0 rem-calc(20);
+    position: absolute;
+    top: 0;
+  }
+}
+
+.ssb-clave {
+  background: orange;
+  background-image: none !important;
+  color: #fff;
+  height: rem-calc(48) !important;
+  position: relative;
+  width: rem-calc(48) !important;
+
+  &::before {
+    content: "@";
+    font-family: "icons" !important;
+    font-size: rem-calc(24);
+    left: 50%;
+    line-height: $line-height * 2;
+    margin-left: rem-calc(-11);
+    position: absolute;
+    top: 0;
+  }
+
+  &:hover,
+  &:focus {
+    background: #fff;
+    color: #354f88;
+  }
+}

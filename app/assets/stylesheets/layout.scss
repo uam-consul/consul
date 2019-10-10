@@ -1516,7 +1516,8 @@ table {
 .button.button-twitter,
 .button.button-facebook,
 .button.button-google,
-.button.button-telegram {
+.button.button-telegram,
+.button.button-clave {
   background: #fff;
   color: $text;
   font-weight: bold;
@@ -1690,7 +1691,7 @@ table {
     position: absolute;
     top: 0;
   }
-
+button-twitter
   &:hover,
   &:focus {
     background: #fff;

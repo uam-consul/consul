@@ -1,0 +1,94 @@
+<% provide :title do %><%= @poll.name %>
+<% end %>
+
+<div class="polls-results-stats">
+  <%= render "poll_header" %>
+
+  <%= render "poll_subnav" %>
+
+  <div class="row margin" data-equalizer data-equalize-on="medium">
+    <div class="small-12 medium-3 column sidebar" data-equalizer-watch>
+      <p><strong><%= t("polls.show.results.title") %></strong></p>
+      <ul class="menu vertical">
+        <%- @poll.questions.each do |question| %>
+          <li><%= link_to question.title, "##{question.title.parameterize}" %></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="small-12 medium-9 column" data-equalizer-watch>
+      <%- @poll.questions.each do |question| %>
+        <h3 id="<%= question.title.parameterize %>"><%= question.title %></h3>
+        <table id="question_<%= question.id %>_results_table">
+          <tbody>
+          <%- question.question_answers.visibles.each do |answer| %>
+            <tr scope="col" <%= answer.most_voted? ? "class=win" : "" %>>
+              <td>
+                <% if answer.most_voted %>
+                  <span class="show-for-sr"><%= t("polls.show.results.most_voted_answer") %></span>
+                <% end %>
+                <%= answer.title %>
+              </td>
+              <td id="answer_<%= answer.id %>_result" <%= answer.most_voted? ? "class=win" : "" %>>
+                <%= answer.total_votes %>
+                <% unless question.enum_type == "positive_negative_open" || question.enum_type == "prioritized" %>
+                  (<%= answer.total_votes_percentage.round(2) %>%)
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
+
+<!--
+    <div class="small-12 medium-9 column" data-equalizer-watch>
+        <%- @poll.questions.each do |question| %>
+          <h3 id="<%= question.title.parameterize %>_tokens_list"><%= t("polls.show.results.tokens_list") %></h3>
+          <table id="question_<%= question.id %>_tokens_list">
+            <tbody>
+              <tr>
+                <%- question.answers.each do |answer| %>
+                <td>
+                  <%= answer.answer %>
+                </td>
+                <% end %>
+              </tr>
+            </tbody>
+          </table>
+        <% end %>
+    </div>
+    -->
+
+
+    <div class="small-13 medium-13 column" data-equalizer-watch>
+        <h3 id="<%= @poll.id %>_tokens_list"><%= t("polls.show.results.tokens_list") %></h3>
+        <table id="voter_tokens_list">
+          <thead>
+            <tr>
+              <th class="small-4"><%= t("polls.show.results.document_number") %></th>
+              <th><%= t("polls.show.results.vote_identifier") %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%- @poll.voters.each do |voter| %>
+              <tr>
+                <td>
+                  <%= voter.document_number %>
+                </td>
+                <td class="win">
+                  <%= voter.token %>
+                </td>
+              </tr>
+            <% end %>
+
+          </tbody>
+        </table>
+
+    </div>
+
+
+
+  </div>
+</div>

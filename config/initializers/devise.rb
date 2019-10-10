@@ -269,6 +269,30 @@ Devise.setup do |config|
   # When using OmniAuth, Devise cannot automatically set OmniAuth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
+  # Configuramos el certificado y la url de RedIris
+  config.omniauth :saml,
+                  idp_cert: "-----BEGIN CERTIFICATE-----
+                  MIIDODCCAqGgAwIBAgIJAMqU+wr6z/l5MA0GCSqGSIb3DQEBCwUAMIG0MRUwEwYK
+                  CZImiZPyLGQBGRYFY2xhdmUxFDASBgoJkiaJk/IsZAEZFgRzaXIyMRcwFQYKCZIm
+                  iZPyLGQBGRYHcmVkaXJpczESMBAGCgmSJomT8ixkARkWAmVzMR4wHAYDVQQKDBVj
+                  bGF2ZS5zaXIyLnJlZGlyaXMuZXMxGDAWBgNVBAsMD0NlcnRpZmljYWRvIFNQVDEe
+                  MBwGA1UEAwwVY2xhdmUuc2lyMi5yZWRpcmlzLmVzMB4XDTE1MDkwMjExNTI0MVoX
+                  DTI1MDkwMTExNTI0MVowgbQxFTATBgoJkiaJk/IsZAEZFgVjbGF2ZTEUMBIGCgmS
+                  JomT8ixkARkWBHNpcjIxFzAVBgoJkiaJk/IsZAEZFgdyZWRpcmlzMRIwEAYKCZIm
+                  iZPyLGQBGRYCZXMxHjAcBgNVBAoMFWNsYXZlLnNpcjIucmVkaXJpcy5lczEYMBYG
+                  A1UECwwPQ2VydGlmaWNhZG8gU1BUMR4wHAYDVQQDDBVjbGF2ZS5zaXIyLnJlZGly
+                  aXMuZXMwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAOtBus8tyx2JFH4ILKRf
+                  vnJ+Eyb0UG1wOZm0hMutS0MvNQuvBZVytR8lVMFqlRX7U1+FP6O10c2GDniuom3v
+                  01uq2guHlu8omR3Tj54ySJf4y7m4b42i8iU+uy3ZK7voPHcyB/zKEDnDxVc5Kmti
+                  oLuk/3M9Ofz+Xsed3yCCfMb1AgMBAAGjUDBOMB0GA1UdDgQWBBSSe7SJPTtSLi+O
+                  bAQD/8QhvORUPzAfBgNVHSMEGDAWgBSSe7SJPTtSLi+ObAQD/8QhvORUPzAMBgNV
+                  HRMEBTADAQH/MA0GCSqGSIb3DQEBCwUAA4GBAF7Md4GMmPl92hUBq1LOOM4Jl6J/
+                  nHSYLkb3SYvQUyiHOcsU2NaXCg6QlrJf9T+kG3XdAv550cNhLtkbiF2stnQByX1O
+                  HPY9kIudyQ3/c7DHFRfi3kkBzL4T1AGdn9PvzpQGtDL3owLsI3H5smfhA8ApogJk
+                  B5C7gzj6U9m1ZAYz
+                  -----END CERTIFICATE-----",
+                  idp_sso_target_url: "https://clave-pre.sir2.rediris.es/clave/saml2/idp/SSOService.php"
+
 end
 
 Rails.application.config.to_prepare do
